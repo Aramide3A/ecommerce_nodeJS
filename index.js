@@ -5,7 +5,9 @@ const auth = require('./routes/authRoute')
 const product = require('./routes/productRoute')
 const mongoose = require('mongoose')
 require('dotenv').config
+const cors = require('cors')
 
+app.use(cors())
 app.use(express.static('public'))
 app.use(express.json())
 app.use('/auth', auth)

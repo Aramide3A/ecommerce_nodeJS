@@ -23,18 +23,22 @@ router.get('/', async(req, res)=>{
     res.send(product)
 })
 
-router.post('/add',[authenticateUser, upload.single('product_image')], async(req, res)=>{
+router.post('/add',[authenticateUser, upload.array('product_image', 10)], async(req, res)=>{
     const {error} = Validate(req.body)
     if (error){
         return res.send(error.details[0].message)
     }
     try {
+        let filenames = [];
+        if (req.files && req.files.length > 0) {
+            filenames = req.files.map(file => file.filename);
+        }
         const product = new Products({
             name: req.body.name,
             price: req.body.price,
             quantity: req.body.quantity,
             description: req.body.description,
-            product_picture: req.file.filename,
+            product_picture: filenames,
         })
         await product.save()
         res.send(product)

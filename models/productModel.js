@@ -14,7 +14,8 @@ const schema = mongoose.Schema({
         required : true,
     },
     product_picture : {
-        type : String,
+        type : [String],
+        default :[],
     },
     description : {
         type : String,
