@@ -19,9 +19,9 @@ app.listen(3000, ()=>{
     console.log("server running")
 })
 
-const Mongo_URI = process.env.Mongo_URI
+const MongoURI = process.env.Mongo_URI
 try {
-    mongoose.connect(Mongo_URI)
+    mongoose.connect(MongoURI)
     console.log('Database Running Successfully')
 } catch (error) {
     console.log(error)
