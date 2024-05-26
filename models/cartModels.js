@@ -15,5 +15,6 @@ const schema = mongoose.Schema({
     },
 })
 
-const Carts = mongoose.model('Cart', schema) 
+const Carts = mongoose.model('Cart', schema)
+ 
 module.exports= Carts

@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Products = require('../models/productModel')
-const Carts = require('../models/cartModel')
+const Carts = require('../models/cartModels')
 const authenticateUser = require('../middleware/postAuth')
 
 router.get('/',authenticateUser,  async(req, res)=>{
